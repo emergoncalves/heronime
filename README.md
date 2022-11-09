@@ -1,7 +1,7 @@
 
 # Heronime
 
-O Heronime é uma plataforma para descoberta de Animes desenvolveida em NextJS. Para sua UI foi utilizada a biblioteca Ant Design customizada com Less.
+O Heronime é uma plataforma para descoberta de Animes desenvolvida em NextJS. Para sua UI foi utilizada a biblioteca Ant Design customizada com Less.
 
 
 
