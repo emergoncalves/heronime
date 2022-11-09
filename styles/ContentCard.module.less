@@ -1,13 +1,32 @@
+@card-width: 300px;
+@card-width-mobile: 175px;
+
 .contentCard {
 
-    max-width: 280px;
+    max-width: @card-width;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media screen and (max-width: 568px) {
+        max-width: @card-width-mobile;
+    }
+
     .image {
         position: relative;
         overflow: hidden;
-        width: 280px;
+        width: @card-width;
         height: 500px;
-        border-radius: 8px;
         transition: .5s;
+        border-radius: 8px 8px 0px 0px;
+        
+        @media screen and (max-width: 568px) {
+            width: @card-width-mobile;
+            height: 280px;
+        }
 
         &:hover{
             transition: .5s;
@@ -22,7 +41,7 @@
         }
 
         img{
-            border-radius: 8px;
+            border-radius:  8px 8px 0px 0px;
         }
 
         .buttonInfoContent{
@@ -31,14 +50,17 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0,0,0,0.8);
             display: flex;
             justify-content: flex-end;
             align-items: center;
             padding: 0px 10px;
-            border-radius: 0px 0px 8px 8px;
+            border-radius: 0px;
             transform: translateY(100%);
             transition: .5s;
+            @media screen and (max-width: 568px) {
+                transform: translateY(0%);
+            }
             span{
                 color: white;
                 font-size: 2rem;
@@ -48,9 +70,19 @@
     }
 
     .contentTitle{
+        padding: 10px 10px;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
         h2{
-            font-size: 1rem;
-            font-weight: 400;
+            height: 100%;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            align-items: center;
         }
     }
 }

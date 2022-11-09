@@ -4,28 +4,27 @@ import styles from '../../styles/ListContent.module.less'
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function ListContent({ results }) {
-  const [posts, setPosts] = useState(results.data);
+  const [items, setItems] = useState(results.data);
   const [hasMore, setHasMore] = useState(true);
 
-  const getMorePost = async () => {
+  const getMoreItems = async () => {
     const res = await fetch(
-      `https://kitsu.io/api/edge/anime?page[limit]=10&page[offset]=${posts.length}`
+      `https://kitsu.io/api/edge/anime?page[limit]=10&page[offset]=${items.length}`
     );
-    const newPosts = await res.json();
-    console.log(newPosts)
-    setPosts((post) => [...post, ...newPosts.data]);
+    const newItems = await res.json();
+    setItems((item) => [...item, ...newItems.data]);
   };
 
   return (
     <InfiniteScroll
-      dataLength={posts.length}
-      next={getMorePost}
+      dataLength={items.length}
+      next={getMoreItems}
       hasMore={hasMore}
       loader={<h3> Loading...</h3>}
       endMessage={<h4>Nothing more to show</h4>}
     >
       <div className={styles.listContent}>
-        {posts.map(result =>
+        {items.map(result =>
           <ContentCard key={result.id} info={result.attributes} />
         )}
       </div>

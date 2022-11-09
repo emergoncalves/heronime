@@ -1,9 +1,9 @@
-import { Drawer, Pagination } from 'antd'
-import {MoreOutlined} from '@ant-design/icons';
+import { Drawer, Space } from 'antd'
+import { MoreOutlined, LikeOutlined } from '@ant-design/icons';
 import Image from 'next/image'
 import React, { useState } from 'react'
 import styles from '../../styles/ContentCard.module.less'
-import { isMobile } from 'react-device-detect';
+import Link from 'next/link';
 
 function ContentCard({ info }) {
     const [open, setOpen] = useState(false);
@@ -25,29 +25,41 @@ function ContentCard({ info }) {
     return (
         <div className={styles.contentCard}>
             <div className={styles.image}>
-                {console.log(isMobile)}
-                <Image
-                    src={info.posterImage.large}
-                    layout='fill'
-                    onClick={() => isMobile ? showDrawer() : ""}
-                    objectFit="cover"
-                    alt={info.canonicalTitle}
-                    sizes="(max-width: 768px) 100vw,
+                <Link href={info.slug}>
+                    <Image
+                        src={info.posterImage.large}
+                        layout='fill'
+                        objectFit="cover"
+                        alt={info.canonicalTitle}
+                        sizes="(max-width: 768px) 100vw,
                         (max-width: 1200px) 50vw,
                         33vw"
-                />
+                    />
+                </Link>
                 <div className={styles.buttonInfoContent}>
-                    <MoreOutlined onClick={()=> showDrawer()} />
+                    <MoreOutlined onClick={() => showDrawer()} />
                 </div>
             </div>
 
             <div className={styles.contentTitle}>
-                <h2>{info.canonicalTitle}</h2>
+                <Link href={info.slug}>
+                    <h2>{info.canonicalTitle}</h2>
+                </Link>
             </div>
-            <Drawer title={info.canonicalTitle} placement="right" onClose={onClose} open={open}>
-                <div>
-                    {content}
-                </div>
+            <Drawer title={info.canonicalTitle} className={styles.drawer} placement="right" onClose={onClose} open={open}>
+                <Space direction='vertical'>
+                    <div>
+                        {content}
+                    </div>
+                    {info.favoritesCount &&
+                        <Space>
+                            <LikeOutlined />
+                            {info.favoritesCount}
+                            <span></span>
+                        </Space>
+                    }
+                </Space>
+
             </Drawer>
         </div>
     )

@@ -1,5 +1,5 @@
-import '../styles/globals.css';
 import '../styles/antd.less';
+import '../styles/globals.less';
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
