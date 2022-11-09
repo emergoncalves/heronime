@@ -12,9 +12,9 @@ function MainHeader() {
     <>
       <Header className='container header'>
         <div className='flex justify-between items-center'>
-          <a href="/">
+          <Link href="/">
             <LogoImage />
-          </a>
+          </Link>
           <SearchInput />
         </div>
       </Header>
