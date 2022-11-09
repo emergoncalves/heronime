@@ -34,9 +34,9 @@ ou
 
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Primary | ![#F46420](https://via.placeholder.com/10/F46420?text=+) #F46420 |
-| Default Background Color | ![#F5F5E3](https://via.placeholder.com/10/F5F5E3?text=+) #F5F5E3 |
-| Success Color| ![#347712](https://via.placeholder.com/10/347712?text=+) #347712 |
+| Primary | ![#F46420](https://placehold.co/15x15/F46420/F46420.png) #F46420 |
+| Default Background Color | ![#F5F5E3](https://placehold.co/15x15/F5F5E3/F5F5E3.png) #F5F5E3 |
+| Success Color| ![#347712](https://placehold.co/15x15/347712/347712.png) #347712 |
 
 ## Fonte utilizada
 
