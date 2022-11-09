@@ -1,10 +1,11 @@
 import React from 'react'
 import YouTube from "react-youtube";
+import {isMobile} from 'react-device-detect';
 
 function Video({youtubeId}) {
     const opts = {
-        height: "390",
-        width: "640",
+        height: isMobile ? "250" : "490",
+        width: isMobile ? "290" : "740",
         playerVars: {
             autoplay: 0,
         },

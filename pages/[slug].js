@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Head from 'next/head';
 import { Space, Collapse, Tooltip } from 'antd';
 import { LikeOutlined, StarOutlined } from '@ant-design/icons';
 import { useRouter } from 'next/router';
@@ -20,6 +21,23 @@ function ItemPost({ result }) {
 
     return (
         <>
+            <Head>
+                <title>{result.attributes.canonicalTitle}</title>
+                <meta name="title" content={result.attributes.canonicalTitle} />
+                <meta name="description" content={attributes.description.substring(0,155)} />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://heronime.vercel.app/" />
+                <meta property="og:title" content={result.attributes.canonicalTitle} />
+                <meta property="og:description" content={attributes.description.substring(0,155)}  />
+                <meta property="og:image" content="/images/cover.jpg" />
+
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://heronime.vercel.app/" />
+                <meta property="twitter:title" content={result.attributes.canonicalTitle} />
+                <meta property="twitter:description" content={attributes.description.substring(0,155)}  />
+                <meta property="twitter:image" content="https://heronime.vercel.app/images/cover.jpg" />
+            </Head>
             <MainHeader />
             <div className='container'>
                 <BreadcrumbsNav slug={slug} title={result.attributes.canonicalTitle} />
