@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useRouter } from 'next/router'
 import { Layout, Space } from 'antd'
 import Head from 'next/head'
 import LogoImage from '../LogoImage';
@@ -8,6 +9,7 @@ import Link from 'next/link';
 
 function MainHeader() {
   const { Header } = Layout;
+  const router = useRouter();
   return (
     <>
       <Header className='container header'>

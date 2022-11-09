@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Input } from 'antd';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 function SearchInput() {
@@ -8,10 +7,10 @@ function SearchInput() {
     const [searchValue, setSearchValue] = useState('');
     const { Search } = Input;
 
-    useEffect( ()=>{
+    useEffect(() => {
         setSearchValue(router.query.search ?? '');
-    },[])
-    
+    }, [])
+
     const onSearch = async (value) => {
         window.location.href = `/?search=${value}`;
     };
